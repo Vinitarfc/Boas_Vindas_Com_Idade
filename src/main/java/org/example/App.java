@@ -19,13 +19,14 @@ public class App
     public static void main( String[] args )
     {
         Scanner entrada = new Scanner(System.in);
+        Pessoa pessoa = new Pessoa();
         System.out.println( "Qual seu nome?" );
-        String nome = entrada.nextLine() + " ";
+        pessoa.nome = entrada.nextLine() + " ";
         System.out.println( "Qual seu sobrenome?" );
-        String sobreNome = entrada.nextLine();
+        pessoa.sobreNome = entrada.nextLine();
         System.out.println( "Qual sua data de nascimento?");
-        LocalDate dataNascimento = LocalDate.parse(entrada.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        System.out.printf("Bem-vindo %s %s. Sua idade: %d", nome, sobreNome, dataNascimento.until(LocalDate.now(), ChronoUnit.YEARS));
+        pessoa.dataNascimento = LocalDate.parse(entrada.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        System.out.printf(pessoa.saudacao());
 
     }
 }
