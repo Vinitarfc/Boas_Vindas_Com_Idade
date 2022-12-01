@@ -19,14 +19,20 @@ public class App
     public static void main( String[] args )
     {
         Scanner entrada = new Scanner(System.in);
-        Pessoa pessoa = new Pessoa();
+        System.out.println( "Qual número da sua CNH?" );
         System.out.println( "Qual seu nome?" );
-        pessoa.nome = entrada.nextLine() + " ";
         System.out.println( "Qual seu sobrenome?" );
-        pessoa.sobreNome = entrada.nextLine();
+        Pessoa pessoa = new Pessoa(entrada.next(), entrada.next(), entrada.next());
         System.out.println( "Qual sua data de nascimento?");
         pessoa.dataNascimento = LocalDate.parse(entrada.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        System.out.printf(pessoa.saudacao());
+
+        Carro fusca = new Carro();
+        fusca.cor = "Branco";
+        fusca.marca = "VW";
+        fusca.placa = "mmm1m234";
+        fusca.motorista = pessoa;
+
+        System.out.printf(fusca.saudacao());
 
     }
 }
